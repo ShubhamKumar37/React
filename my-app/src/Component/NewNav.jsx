@@ -1,4 +1,4 @@
-
+import PropTypes from 'prop-types';
 
 function NewNav(Props) {
     return (
@@ -37,3 +37,10 @@ function NewNav(Props) {
 }
 
 export default NewNav;
+
+NewNav.propTypes = {Title: PropTypes.string.isRequired, About: PropTypes.string};
+
+NewNav.defaultProps = {
+    Title: 'Nikhil Company',
+    About: 'Nothing to tell'
+}
