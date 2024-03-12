@@ -9,20 +9,20 @@ export default function Cards({Courses})
         Object.values(Courses).forEach((Catagory) =>
         {
             Catagory.forEach((Main_Obj) =>
-            {
+            { 
                 All_Data_Arr.push(Main_Obj);
             })
         })
-        return All_Data_Arr;
 
+        return All_Data_Arr;
     }
+    Get_Courses();
 
     return (
         <div>
             {
-                Get_Courses().map((Course) =>
-                {
-                    return(<Card Course={Course} />);
+                Get_Courses().map((Course) => {
+                    return (<Card key={Course.id} Course={Course}></Card>);
                 })
             }
         </div>

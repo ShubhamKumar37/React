@@ -11,22 +11,44 @@ const App = () => {
   useEffect(() =>{
     async function Fetch_Data()
     {
-      let Data = await fetch(apiUrl);
-      let Obj = await Data.json();
-      SetCourses(Obj.data);
-
-      // console.log(Obj);
+      try
+      {
+        let Data = await fetch(apiUrl);
+        let Obj = await Data.json();
+        SetCourses(Obj.data);
+      }
+      catch(error)
+      {
+        console.log("Error occur hua han bhai");
+      }
     }
-
     Fetch_Data();
-  })
+
+  });
+
+  function AddFilterHandler(Id)
+  {
+    if(Id == 1)
+    {
+      let All_Data_Arr = [];
+      Object.values(Courses).forEach((Catagory) =>
+      {
+          Catagory.forEach((Main_Obj) =>
+          { 
+              All_Data_Arr.push(Main_Obj.id === Id);
+          })
+      })
+      SetCourses(All_Data_Arr);
+    }
+  }
+
   return (
     <div>
       <NavBar></NavBar>
 
-      <NavFilter filterData={filterData}></NavFilter>
+      <NavFilter Get_Id={AddFilterHandler} filterData={filterData}></NavFilter>
 
-      <Cards Courses={Courses}></Cards>
+      {Courses && <Cards Courses={Courses}></Cards>}
     </div>
   );
 };
