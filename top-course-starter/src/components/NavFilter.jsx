@@ -1,19 +1,21 @@
 
 
-export default function NewFilter({filterData, AddFilterHandler})
-{
+export default function NewFilter(Props) {
+    let SetCatogory = Props.SetCatagory;
 
-    function AddFilterHandler(Event)
-    {
-        AddFilterHandler.AddFilterHandler(Event.target.value.id);
+    function AddIdHandler(Title) {
+        SetCatogory(Title);
     }
-    
+
     return (
-        <div>
+        <div className="relative flex justify-center bg-blue-950 text-lg text-white gap-6">
             {
-                filterData.map((Value) => {
+                Props.filterData.map((Value) => {
                     return (
-                        <button onClick={AddFilterHandler} key={Value.id}>{Value.title}</button>
+                        <button className="relative border-2 border-white rounded-lg p-1 px-2 m-1" onClick={() => {
+                            AddIdHandler(Value.title)
+                        }
+                        } key={Value.id}>{Value.title}</button>
                     );
                 })
             }

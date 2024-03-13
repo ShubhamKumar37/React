@@ -3,52 +3,43 @@ import { filterData, apiUrl } from "./data";
 import NavBar from "./components/NavBar";
 import NavFilter from "./components/NavFilter";
 import Cards from "./components/Cards";
-import {useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+import { toast } from "react-toastify";
 
 const App = () => {
   const [Courses, SetCourses] = useState(null);
+  const [Catagory, SetCatagory] = useState(filterData[0].title);
 
-  useEffect(() =>{
-    async function Fetch_Data()
-    {
-      try
-      {
-        let Data = await fetch(apiUrl);
-        let Obj = await Data.json();
-        SetCourses(Obj.data);
-      }
-      catch(error)
-      {
-        console.log("Error occur hua han bhai");
-      }
+  var Fetch_Data = async () => {
+    try {
+
+      let Data = await fetch(apiUrl);
+      let Obj = await Data.json();
+      SetCourses(Obj.data);
     }
-    Fetch_Data();
-
-  });
-
-  function AddFilterHandler(Id)
-  {
-    if(Id == 1)
-    {
-      let All_Data_Arr = [];
-      Object.values(Courses).forEach((Catagory) =>
-      {
-          Catagory.forEach((Main_Obj) =>
-          { 
-              All_Data_Arr.push(Main_Obj.id === Id);
-          })
-      })
-      SetCourses(All_Data_Arr);
+    catch (error) {
+      console.log("Error occur hua han bhai");
     }
   }
+  useEffect(() => {
+    Fetch_Data();
+
+  }, []);
+
 
   return (
-    <div>
-      <NavBar></NavBar>
+    <div className="relative min-h-[100vh] min-w-[100vw] bg-blue-700 h-fit w-fit">
+      <div className=" text-white pb-2  overflow-x-hidden">
+        <NavBar></NavBar>
 
-      <NavFilter Get_Id={AddFilterHandler} filterData={filterData}></NavFilter>
+        <NavFilter Catagory={Catagory} SetCatagory={SetCatagory} filterData={filterData}></NavFilter>
 
-      {Courses && <Cards Courses={Courses}></Cards>}
+        {Courses &&
+          <div className="relative max-w-[980px] mx-auto pt-3 ">
+            <Cards Courses={Courses} Catagory={Catagory}></Cards>
+          </div>
+        }
+      </div>
     </div>
   );
 };

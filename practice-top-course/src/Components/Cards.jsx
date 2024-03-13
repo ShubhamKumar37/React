@@ -17,7 +17,9 @@ export default function Cards(Props)
     Extracting_Data();
     return (
         <div>
-            <p>this is me </p>
+            {
+                Data_Arr && Data_Arr.map((Element))
+            }
         </div>
     );
 }
