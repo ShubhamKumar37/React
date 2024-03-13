@@ -1,24 +1,33 @@
-
+import Card from "./Card";
 
 export default function Cards(Props)
 {
     let Data_Arr = [];
-
-    function Extracting_Data()
+    const Extracting_Data = () =>
     {
-        Object.values(Props.Courses).forEach((Element) =>
+        if(Props.Title === "All")
         {
-            Element.forEach((Val) =>
+            Object.values(Props.Courses).forEach((Element) =>
             {
-                Data_Arr.push(Val);
+                Element.forEach((Val) =>
+                {
+                    Data_Arr.push(Val);
+                })
             })
-        })
+        }
+        else
+        {
+            Data_Arr = Props.Courses[Props.Title];
+        }
     }
     Extracting_Data();
     return (
         <div>
             {
-                Data_Arr && Data_Arr.map((Element))
+                Data_Arr.map((Element) =>
+                {
+                    return <Card key={Element.title} Element={Element}></Card>
+                })
             }
         </div>
     );
