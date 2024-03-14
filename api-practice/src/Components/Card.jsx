@@ -17,7 +17,7 @@ export default function Card(Props) {
                     {/* Description of the news and publish by whom */}
                     <div className="">
                         <p className="relative opacity-80 italic">{Props.NewsContent.author}-</p>
-                        <p className="text-sm">{Props.NewsContent.description}</p>
+                        <p className="text-sm">{Props.NewsContent.description && Props.NewsContent.description.substring(0, 160)}...<span><a href={Props.NewsContent.url} target="_blank" className="underline-none text-blue-500 cursor-pointer">ReadMore</a></span></p>
                     </div>
                 </div>
 
@@ -25,7 +25,7 @@ export default function Card(Props) {
             </div>
             <div>
                 {/* Image of Card */}
-                <img src={Props.NewsContent.urlToImage} className="aspect-square w-[15rem] object-cover rounded-lg"></img>
+                <img src={Props.NewsContent.urlToImage} className="aspect-square w-[15rem] object-cover rounded-lg" loading="lazy"></img>
             </div>
         </div>
     );

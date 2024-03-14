@@ -2,9 +2,8 @@ import Card from './Card.jsx';
 
 export default function Cards(Props)
 {
-
     return (
-        <div className='relative max-w-[1080px] mx-auto flex flex-col gap-[4rem] border-collapse '>
+        <div className='relative max-w-[900px] ml-9 flex flex-col gap-[4rem] border-collapse '>
             {Props.News && Props.News.map((NewsContent, index) =>
             {
                 return (
