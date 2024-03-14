@@ -36,6 +36,8 @@ const App = () => {
       <div>
         <nav className="bg-red-600 relative text-center text-white font-bold text-6xl underline">Todays News</nav>
 
+        
+
         {News && <Cards News={News}></Cards>}
       </div>
     </div>
