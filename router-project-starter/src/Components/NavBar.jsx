@@ -1,13 +1,12 @@
 import {Link} from 'react-router-dom';
 import logo from "../assets/Logo.svg";
-import { toast } from 'react-hot-toast';
 
 export default function NavBar(Props)
 {
     return (
         <div className='relative flex flex-row justify-evenly'>
             <Link to='/'>
-                <img src={logo} width={160} height={40} loading='lazy'></img>
+                <img src={logo} alt='This is logo' width={160} height={40} loading='lazy'></img>
             </Link>
 
             <nav>
@@ -25,39 +24,26 @@ export default function NavBar(Props)
             </nav>
 
             <div className='flex flex-row gap-4'>
-                {!Props.IsLogged &&
+                {Props.IsLogged === false &&
                     <Link to='/login'>
-                        <button onClick={() =>
-                        {
-                            Props.SetIsLogged(true);
-                            toast.success("Logged in successfully");
-                        }}>Login</button>
+                        <button>Login</button>
                     </Link>
                 }
-                {!Props.IsLogged &&
+                {Props.IsLogged === false &&
                     <Link to='/signup'>
-                        <button onClick={() =>
-                        {
-                            Props.SetIsLogged(true);
-                            toast.success("Signed up successfully");
-                        }}>Signup</button>
+                        <button >Signup</button>
                     </Link>
                 }
-                {Props.IsLogged &&
+                {Props.IsLogged === true &&
                     <Link to='/'>
-                        <button onClick={() =>
-                        {
-                            Props.SetIsLogged(false);
-                            toast.success("Logged out successfully");
-                        }}>Log out</button>
+                        <button onClick={() => Props.SetIsLogged(!Props.IsLogged)}>
+                        {/* onClick={() => Props.SetIsLogged((Props.IsLogged) = !Props.IsLogged)} */}
+                            Log out</button>
                     </Link>
                 }
-                {Props.IsLogged &&
+                {Props.IsLogged === true &&
                     <Link to='/dashboard'>
-                        <button onClick={() =>
-                        {
-                            Props.SetIsLogged(false);
-                        }}>Dashboard</button>
+                        <button>Dashboard</button>
                     </Link>
                 }
             </div>

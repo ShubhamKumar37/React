@@ -1,12 +1,12 @@
 import "./App.css";
 import NavBar from './Components/NavBar';
 import { Routes, Route } from "react-router-dom";
-import Home from './pages/Home';
-import Login from './pages/Login';
-import Signup from './pages/Signup';
-import DashBoard from './pages/DashBoard';
-import Contact from './pages/Contact';
-import About from './pages/About';
+import Home from './Components/Home';
+import Login from './Components/Login';
+import Signup from './Components/Signup';
+import DashBoard from './Components/DashBoard';
+import Contact from './Components/Contact';
+import About from './Components/About';
 import { useState } from "react";
 
 function App() {
@@ -19,8 +19,8 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
-        <Route path="/signup" element={<Signup></Signup>}></Route>
-        <Route path="/login" element={<Login></Login>}></Route>
+        <Route path="/login" element={<Login SetIsLogged={SetIsLogged}></Login>}></Route>
+        <Route path="/signup" element={<Signup SetIsLogged={SetIsLogged}></Signup>}></Route>
         <Route path="/contact" element={<Contact></Contact>}></Route>
         <Route path="/about" element={<About></About>}></Route>
         <Route path="/dashboard" element={<DashBoard></DashBoard>}></Route>
