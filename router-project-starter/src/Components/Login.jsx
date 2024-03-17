@@ -5,7 +5,7 @@ export default function Login(Props)
 {
     return (
         <Template
-            Title="Join the million learning to code with StudyNotation for free"
+            Title="Welcome back"
             Desc1="Build skill for today, tommorrow and beyond"
             Desc2="Education to future-proof your carrer"
             Image={LoginImg}

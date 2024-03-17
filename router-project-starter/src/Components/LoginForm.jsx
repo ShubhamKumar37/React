@@ -31,30 +31,34 @@ export default function LoginForm(Props) {
     }
 
     return (
-        <form onSubmit={SubmitHandler}>
+        <form onSubmit={SubmitHandler} className="my-4 flex flex-col gap-2">
             <label>
-                <p>Email Address <sup>*</sup></p>
-                <input type="email" name="Email" onChange={ChangeHandler} placeholder="Example@gmail.com" value={FormData.Email} required></input>
+                <p>Email Address <sup className="text-red-600">*</sup></p>
+                <input type="email" name="Email" onChange={ChangeHandler} placeholder="Example@gmail.com" value={FormData.Email} required
+                className="bg-black border border-gray-500 p-2 w-full rounded-lg selection:bg-black"></input>
             </label>
 
-            <label>
-                <p>Password <sup>*</sup></p>
-                <input type={PassField === false ? "password" : "text"} name="Password" onChange={ChangeHandler} placeholder="Enter your password" value={FormData.Password} required></input>
+            <label className="relative flex flex-col">
+                <p>Password <sup className="text-red-600">*</sup></p>
+                <input type={PassField === false ? "password" : "text"} name="Password" onChange={ChangeHandler} placeholder="Enter your password" value={FormData.Password} required
+                className="bg-black border border-gray-500 p-2 w-full rounded-lg"></input>
 
+                <span className="cursor-pointer absolute right-3 top-[2.2rem] text-xl" onClick={() => SetPassField((Flag) => !Flag)}>
+                    {
+                        PassField === false ?
+                            (<AiOutlineEyeInvisible></AiOutlineEyeInvisible>) :
+                            (<AiOutlineEye></AiOutlineEye>)
+                    }
+                </span>
             </label>
+            
+            <div className="relative flex w-full justify-end ">
+                <Link to="#">
+                    <span className="italic text-blue-100 hover:underline">Forget Password</span>
+                </Link>
+            </div>
 
-            <span className="cursor-pointer" onClick={() => SetPassField((Flag) => !Flag)}>
-                {
-                    PassField === false ?
-                        (<AiOutlineEyeInvisible></AiOutlineEyeInvisible>) :
-                        (<AiOutlineEye></AiOutlineEye>)
-                }
-            </span>
-            <Link to="#">
-                <span>Forget Password</span>
-            </Link>
-
-            <button>log in</button>
+            <button className="bg-[#c8ad4d] text-[#292525] font-bold p-2 rounded-lg hover:underline hover:bg-[#e9c545] transition-all duration-200">log in</button>
         </form>
     );
 }
