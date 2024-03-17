@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import LogoImage from "../assets/Logo.svg";
+import {toast} from 'react-hot-toast'
 
 export default function NavBar({IsLogged, SetIsLogged})
 {
@@ -39,8 +40,8 @@ export default function NavBar({IsLogged, SetIsLogged})
                     </Link>
                 }
                 {   IsLogged === true && 
-                    <Link to='/logout'>
-                    <button>
+                    <Link to='/'>
+                    <button onClick={() => {SetIsLogged(!IsLogged); toast.success("Logged out successfully")}} >
                         Logout
                     </button>
                     </Link>

@@ -7,6 +7,7 @@ import Login from "./Components/Login";
 import Dashboard from "./Components/Dashboard";
 import Signup from "./Components/Signup";
 import NavBar from "./Components/NavBar";
+import PrivateDash from "./Components/PrivateDash";
 import { useState } from "react";
 
 
@@ -23,7 +24,11 @@ function App() {
         <Route path="/contact" element={<Contact></Contact>}></Route>
         <Route path="/login" element={<Login SetIsLogged={SetIsLogged}></Login>}></Route>
         <Route path="/signup" element={<Signup SetIsLogged={SetIsLogged}></Signup>}></Route>
-        <Route path="/dashboard" element={<Dashboard></Dashboard>}></Route>
+        <Route path="/dashboard" element={
+          <PrivateDash IsLogged={IsLogged}>
+            <Dashboard></Dashboard>
+          </PrivateDash>
+        }></Route>
       </Routes>
     </div>
 
