@@ -23,7 +23,7 @@ export default function Card(Props) {
 
                 <a href={Props.NewsContent.url} target="_blank" className=" mt-4 p-2 border-2 border-red-600 text-red-700  rounded-lg transition-all duration-200  text-center hover:bg-red-600 hover:text-white hover:text-xl">To Know more about it</a>
             </div>
-            <div>
+            <div className="flex items-center">
                 {/* Image of Card */}
                 <img src={Props.NewsContent.urlToImage} className="aspect-square w-[15rem] object-cover rounded-lg" loading="lazy"></img>
             </div>

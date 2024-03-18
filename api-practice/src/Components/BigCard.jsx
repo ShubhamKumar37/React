@@ -1,8 +1,6 @@
-
-
 export default function Card(Props) {
     return (
-        <div className="relative border-4 border-gray-900 p-3 py-5 rounded-lg m-2 flex flex-col justify-evenly">
+        <div className="relative border-2 border-gray-400 p-2 py-1 rounded-lg m-2 flex flex-col justify-evenly h-[626px]">
             <div className="w-full flex flex-col justify-between">
                 <span className="font-bold text-red-600 text-xl">Normal news</span>
                 {/* Published on */}
@@ -22,9 +20,9 @@ export default function Card(Props) {
                 </div>
 
             </div>
-            <div className="relative mx-auto">
+            <div className="relative mx-auto overflow-hidden rounded-lg object-center" style={{ width: '690px', height: '388px' }}>
                 {/* Image of Card */}
-                <a href={Props.NewsContent.url} target="_blank" className=" mt-4 p-2 rounded-lg "><img src={Props.NewsContent.urlToImage}  className=" object-cover rounded-lg" loading="lazy"></img></a>
+                <a href={Props.NewsContent.url} target="_blank" className="mt-4 p-2"><img src={Props.NewsContent.urlToImage} className="rounded-lg object-center " loading="lazy" style={{ width: '100%', height: '100%' }}></img></a>
                 
             </div>
         </div>

@@ -70,7 +70,7 @@ export default function NewsSlider(Props) {
         //     </div>
 
         // </div>
-        <div className="fixed h-fit rounded-lg p-4 border-2 bg-[#1D2936] text-white m-2 w-[18rem] mx-auto overflow-hidden max-h-[18rem]">
+        <div className="relative h-fit rounded-lg p-4 border-2 bg-[#1D2936] text-white m-2 w-[18rem] mx-auto overflow-hidden max-h-[18rem]">
             <div className="flex flex-row justify-between">
                 <h2 className="font-bold text-xl underline mb-3">Trending News</h2>
                 <div className="flex flex-row gap-4">

@@ -37,7 +37,7 @@ const App = () => {
     <div>
       <div className="relative">
         <MainNav></MainNav>
-        <div className="flex">
+        <div className="flex justify-evenly">
           <SideBar></SideBar>
           {
           News && <Cards News={News}></Cards>
