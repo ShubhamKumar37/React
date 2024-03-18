@@ -1,8 +1,10 @@
 import React from "react";
-import { API } from "./data.js";
+import { Obj } from "./data.js";
 import { useState, useEffect } from "react";
 import Cards from "./Components/Cards.jsx";
 import NewsSlider from "./Components/NewsSlider.jsx";
+import MainNav from "./Components/MainNav.jsx";
+import SideBar from "./Components/SideBar.jsx";
 
 
 
@@ -12,11 +14,12 @@ const App = () => {
 
   async function Fetch_Data() {
     try {
-      let Raw = await fetch(API);
-      let Jobj = await Raw.json();
+      // let Raw = await fetch(API);
+      // let Jobj = await Raw.json();
 
-      console.log(Jobj.articles[0]);
-      SetNews(Jobj.articles);
+      // console.log(Jobj.articles[0]);
+      SetNews(Obj.articles);
+      console.log(Obj.articles);
 
     }
     catch (e) {
@@ -33,10 +36,9 @@ const App = () => {
   return (
     <div>
       <div className="relative">
-        <nav className="bg-red-600 relative text-center text-white font-bold text-6xl underline py-3">Todays News</nav>
-
+        <MainNav></MainNav>
         <div className="flex">
-
+          <SideBar></SideBar>
           {
           News && <Cards News={News}></Cards>
           }
