@@ -13,10 +13,8 @@ import { GiOnTarget } from "react-icons/gi";
 import { BiSolidOffer } from "react-icons/bi";
 import { IoLogoYoutube } from "react-icons/io";
 import { TbWorld } from "react-icons/tb";
-import { useState } from "react";
 import { MdAccountCircle } from "react-icons/md";
 import { useNavigate, Link } from "react-router-dom";
-import { useEffect } from "react";
 
 export default function SideBar({ Mode, SetMode, Logged, SetLogged }) {
 
@@ -40,7 +38,6 @@ export default function SideBar({ Mode, SetMode, Logged, SetLogged }) {
                 <div className="w-[80%] justify-center flex items-center">
                         <button onClick={ClickHandler} className={`${Mode === false ? "text-[#CC0000] border border-[#CC0000]" : "text-white border border-white"} rounded-full px-4`} >{Logged === false ? "Login" : "Logout"}</button>
                 </div>
-                {/* {Logged === false ? "Login" : "Logout"} */}
             </div>
 
             <label class="inline-flex items-center  cursor-pointer border-b border-[#999999] py-3 px-3 gap-3">
@@ -64,21 +61,14 @@ export default function SideBar({ Mode, SetMode, Logged, SetLogged }) {
                     <li className="flex flex-row text-lg items-center gap-3 hover:font-bold transition-all duration-100 cursor-pointer mt-2">
                         <FaHome /> Home
                     </li>
-                    <li className="flex flex-row text-lg items-center gap-3 hover:font-bold transition-all duration-100 cursor-pointer">
-                        <MdLiveTv />TV
-                        {/* <select>
-                            <option> </option>
-                            <option>Live TV</option>
-                            <option>Primetv</option>
-                        </select> */}
-                    </li>
+                    <Link to='/TVpage'>
+                        <li className="flex flex-row text-lg items-center gap-3 hover:font-bold transition-all duration-100 cursor-pointer">
+                            <MdLiveTv />TV
+                        </li>
+
+                    </Link>
                     <li className="flex flex-row text-lg items-center gap-3 hover:font-bold transition-all duration-100 cursor-pointer">
                         <FaBook />Magzine
-                        {/* <select className="absolute">
-                            <option> </option>
-                            <option>Latest <br/>  Edition</option>
-                            <option>Insight</option>
-                        </select> */}
                     </li>
                     <li className="flex flex-row text-lg items-center gap-3 hover:font-bold transition-all duration-100 cursor-pointer">
                         <FaGlassMartini />Life+Style

@@ -5,7 +5,7 @@ import Home from "./Components/Home.jsx";
 import MainNav from "./Components/MainNav.jsx";
 import {Routes, Route} from 'react-router-dom';
 import Account from './Components/Account.jsx';
-
+import TVPage from './Pages/TVPage.jsx';
 
 
 
@@ -43,6 +43,7 @@ const App = () => {
         <Routes>
           <Route path='/' element={<Home Logged={Logged} Mode={Mode} News={News} SetLogged={SetLogged} SetMode={SetMode}/>}></Route>
           <Route path='/account' element={<Account Logged={Logged} SetLogged={SetLogged}></Account>}></Route>
+          
         </Routes>
       </div>
     </div>

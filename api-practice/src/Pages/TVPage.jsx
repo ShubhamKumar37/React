@@ -1,10 +1,13 @@
-
+import MainNav from "../Components/MainNav";
 
 export default function TVPages()
 {
     return (
         <div>
-            <h1>This is TV page</h1>
+            <div>
+                <h1>This is TV page</h1>
+            </div>
+
         </div>
     );
 }
