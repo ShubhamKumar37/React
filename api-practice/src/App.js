@@ -1,16 +1,21 @@
 import React from "react";
 import { Obj } from "./data.js";
 import { useState, useEffect } from "react";
-import Cards from "./Components/Cards.jsx";
-import NewsSlider from "./Components/NewsSlider.jsx";
+import Home from "./Components/Home.jsx";
 import MainNav from "./Components/MainNav.jsx";
-import SideBar from "./Components/SideBar.jsx";
+import {Routes, Route} from 'react-router-dom';
+import Account from './Components/Account.jsx';
+
 
 
 
 const App = () => {
 
   const [News, SetNews] = useState(null);
+  const [Mode, SetMode] = useState(false);
+  const [Logged, SetLogged] = useState(false);
+
+  console.log(Logged);
 
   async function Fetch_Data() {
     try {
@@ -19,7 +24,6 @@ const App = () => {
 
       // console.log(Jobj.articles[0]);
       SetNews(Obj.articles);
-      console.log(Obj.articles);
 
     }
     catch (e) {
@@ -31,24 +35,15 @@ const App = () => {
     Fetch_Data();
   }, []);
 
-  // console.log(News);
-
   return (
     <div>
       <div className="relative">
-        <MainNav></MainNav>
-        <div className="flex justify-evenly">
-          <SideBar></SideBar>
-          {
-          News && <Cards News={News}></Cards>
-          }
-
-          <div className="relative right-0">
-            {
-              News && <NewsSlider News={News}></NewsSlider>
-            }
-          </div>
-        </div>
+        <MainNav Mode={Mode}></MainNav>
+        {/* <Home Mode={Mode} News={News} SetMode={SetMode}></Home> */}
+        <Routes>
+          <Route path='/' element={<Home Logged={Logged} Mode={Mode} News={News} SetLogged={SetLogged} SetMode={SetMode}/>}></Route>
+          <Route path='/account' element={<Account Logged={Logged} SetLogged={SetLogged}></Account>}></Route>
+        </Routes>
       </div>
     </div>
   );

@@ -2,7 +2,7 @@
 
 export default function Card(Props) {
     return (
-        <div className="relative border-2 border-gray-400 p-3 py-5 rounded-lg m-2 flex justify-evenly">
+        <div className={`${Props.Mode === false ? 'bg-white  border border-gray-400' : 'bg-[#2C2C2C]'} relative p-3 py-5 rounded-lg m-2 flex justify-evenly`}>
             <div className="w-[70%] flex flex-col justify-between">
                 <span className="font-bold text-red-600 text-2xl">Normal news</span>
                 {/* Published on */}
@@ -12,7 +12,7 @@ export default function Card(Props) {
                 <div className="relative flex flex-col gap-4">
 
                     {/* Title of Card*/}
-                    <h2 className="font-bold text-2xl">{Props.NewsContent.title}</h2>
+                    <a href={Props.NewsContent.url} target="_blank"></a><h2 className={`${Props.Mode === false ? "text-black" : "text-white"} font-bold text-2xl cursor-pointer`}>{Props.NewsContent.title}</h2>
 
                     {/* Description of the news and publish by whom */}
                     <div className="">

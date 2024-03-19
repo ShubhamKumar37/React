@@ -14,52 +14,54 @@ import { BiSolidOffer } from "react-icons/bi";
 import { IoLogoYoutube } from "react-icons/io";
 import { TbWorld } from "react-icons/tb";
 import { useState } from "react";
+import { MdAccountCircle } from "react-icons/md";
+import { useNavigate, Link } from "react-router-dom";
+import { useEffect } from "react";
 
-export default function SideBar() {
-    
-    const [Mode, SetMode] = useState(false);
+export default function SideBar({ Mode, SetMode, Logged, SetLogged }) {
 
-    function ModeHandler()
-    {
+    const Navigate = useNavigate();
+
+    function ModeHandler() {
         SetMode(!Mode);
-        if(Mode === true)
-        {
-            document.body.style.color = "black";
-            document.body.style.backgroundColor = "white";
-        }
-        else
-        {
-            document.body.style.color = "white";
-            document.body.style.backgroundColor = "black";
-        }
     }
-    
+
+    function ClickHandler() {
+
+        SetLogged(prevLogged => prevLogged === true ? false : true);
+        Navigate(Logged ? '/' : '/account');
+        
+    }
+
     return (
-        <div>
-            <div>
-                <div></div>
-                <button></button>
+        <div className={`flex flex-col w-[238px] items-center  gap-3 ${Mode === false ? "bg-[#EFF3F6] text-black" : "text-white bg-[#2C2C2C]"}`}>
+            <div className="relative flex flex-row justify-between py-3 border-b border-[#999999] gap-2">
+                <div className="text-5xl text-[#999999]"><MdAccountCircle /></div>
+                <div className="w-[80%] justify-center flex items-center">
+                        <button onClick={ClickHandler} className={`${Mode === false ? "text-[#CC0000] border border-[#CC0000]" : "text-white border border-white"} rounded-full px-4`} >{Logged === false ? "Login" : "Logout"}</button>
+                </div>
+                {/* {Logged === false ? "Login" : "Logout"} */}
             </div>
 
-            <label class="inline-flex items-center mb-5 cursor-pointer">
+            <label class="inline-flex items-center  cursor-pointer border-b border-[#999999] py-3 px-3 gap-3">
                 <input type="checkbox" value="" class="sr-only peer" onChange={ModeHandler} />
-                <div class="relative w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-                <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">Dark mode</span>
+                <div class="relative w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600 "></div>
+                <span class={`"ms-3 text-sm font-medium ${Mode === false ? "text-black" : "text-white"}"`}>{Mode === false ? "Dark mode" : "Light mode"}</span>
             </label>
 
-            <div>
-                Edition
+            <div className="flex flex-row gap-2 py-3 px-3 cursor-pointer border-b border-[#999999]">
+                <span>Edition</span>
 
-                <select>
+                <select className={`${Mode === false ? "bg-white text-black" : "bg-black text-white"} rounded-lg w-[4rem]`}>
                     <option>IN</option>
                     <option>US</option>
                 </select>
             </div>
 
-            <div>
-                <div className="bg-[#CC0000] text-white flex flex-row "><FaCrown /> Subscribe</div>
-                <ul className="flex flex-col gap-2 ml-4">
-                    <li className="flex flex-row text-lg items-center gap-3 hover:font-bold transition-all duration-100 cursor-pointer">
+            <div className="py-3 ">
+                <div className="bg-[#CC0000] rounded-full items-center gap-1 justify-center text-white flex flex-row "><FaCrown /> Subscribe</div>
+                <ul className="flex flex-col gap-5 ml-4">
+                    <li className="flex flex-row text-lg items-center gap-3 hover:font-bold transition-all duration-100 cursor-pointer mt-2">
                         <FaHome /> Home
                     </li>
                     <li className="flex flex-row text-lg items-center gap-3 hover:font-bold transition-all duration-100 cursor-pointer">

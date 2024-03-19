@@ -6,7 +6,6 @@ export default function NewsSlider(Props) {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const [Index, SetIndex] = useState([0, 0, 0, 0, 0]);
-    const [Ind, SetInd] = useState(0);
 
     function LeftNewsHandler() {
         setCurrentIndex((prevIndex) => (prevIndex === 0 ? 0 : prevIndex - 1));
@@ -42,7 +41,6 @@ export default function NewsSlider(Props) {
         for (let i = 0; i < 5; i++) {
             Arr.push((getRandomArbitrary(0, Props.News.length)));
         }
-        console.log(Arr);
         SetIndex(Arr);
     }
     useEffect(() => {
@@ -70,7 +68,7 @@ export default function NewsSlider(Props) {
         //     </div>
 
         // </div>
-        <div className="relative h-fit rounded-lg p-4 border-2 bg-[#1D2936] text-white m-2 w-[18rem] mx-auto overflow-hidden max-h-[18rem]">
+        <div className="relative h-fit rounded-lg p-4  bg-[#1D2936] text-white m-2 w-[18rem] mr-[2rem] overflow-hidden max-h-[18rem]">
             <div className="flex flex-row justify-between">
                 <h2 className="font-bold text-xl underline mb-3">Trending News</h2>
                 <div className="flex flex-row gap-4">
