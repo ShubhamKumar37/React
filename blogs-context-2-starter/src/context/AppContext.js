@@ -10,7 +10,7 @@ export default function AppContextProvider({ children }) {
   const [totalPages, setTotalPages] = useState(null);
 
   // Fetch Blog Data
-  const fetchBlogPosts = async (page = 1, category, tag = null) => {
+  const fetchBlogPosts = async (page = 1, tag = null, category ) => {
     setLoading(true);
     let url = `${baseUrl}?page=${page}`;
     if(tag)
