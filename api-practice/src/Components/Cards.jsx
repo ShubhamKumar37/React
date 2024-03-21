@@ -5,7 +5,7 @@ export default function Cards(Props) {
     let Count = 3;
     let Num = 4;
     return (
-        <div className={`'relative max-w-[730px] flex flex-col gap-[2rem] rounded-lg  ${Props.Mode === false ? 'bg-white ' : 'text-white'}`}>
+        <div className={`'relative max-w-[730px] flex flex-col gap-[2rem] rounded-lg  ${Props.Mode === false ? 'bg-white' : 'text-white'}`}>
             {Props.News && Props.News.map((NewsContent, index) => {
                 Count++;
                 if (Count % Num === 0) {

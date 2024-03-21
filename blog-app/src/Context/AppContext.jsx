@@ -23,6 +23,7 @@ export default function AppContextProvider({children})
             SetPage(Obj.page);
             SetTotalPages(Obj.totalPages);
             SetBlog(Obj.posts);
+            // console.log(Obj);
         }
         catch(Error)
         {
@@ -38,7 +39,6 @@ export default function AppContextProvider({children})
     {
         FetchData();
     }, [])
-
     function PageChangeHandler(page)
     {
         SetPage(page);

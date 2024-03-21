@@ -2,9 +2,9 @@
 
 export default function Header() {
     return (
-        <div>
-            <header>
-                <h1>This is a blog page</h1>
+        <div className="w-full fixed bg-[#ffffff] z-10">
+            <header className="">
+                <h1 className="text-center text-xl font-bold">This is a blog page</h1>
             </header>
         </div>
     );
