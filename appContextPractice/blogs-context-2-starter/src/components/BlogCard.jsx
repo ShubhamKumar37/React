@@ -18,10 +18,10 @@ export default function BlogCard({ post }) {
             <p className="mt-4 mb-2">{post.content}</p>
             <div className="flex flex-wrap gap-x-2 items-center">
                 {post.tags.map((tag, index) => (
-                    <NavLink to={`/tags/${tag.replaceAll(" ", "-")}`}>
+                    <NavLink key={index} to={`/tags/${tag.replaceAll(" ", "-")}`}>
 
                         <span
-                            key={index}
+                            
                             className="text-xs font-semibold underline text-blue-700 cursor-pointer">{`#${tag}`}
                         </span>
                     </NavLink>

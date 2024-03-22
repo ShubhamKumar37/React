@@ -13,11 +13,13 @@ export default function BlogPage() {
     const { setLoading, loading } = useContext(AppContext);
     const BlogId = Location.pathname.split('/').at(-1);
     const Navigate = useNavigate();
+    const NewUrl = "https://codehelp-apis.vercel.app/api/";
 
     async function fetchRelatedBlogs() {
         setLoading(true);
         try {
-            const Response = await fetch(`${baseUrl}?BlogId=${BlogId}`);
+            const Response = await fetch(`${NewUrl}get-blog?BlogId=${BlogId}`);
+            console.log()
             const Data = await Response.json();
 
             setBlog(Data.blog);

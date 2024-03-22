@@ -16,9 +16,9 @@ export default function AppContextProvider({ children }) {
     setLoading(true);
     let url = `${baseUrl}?page=${page}`;
     
-    if(tag !== null)
+    if(tag)
     {
-      url += `&tags=${tag}`
+      url += `&tag=${tag}`
     }
 
     if(category)

@@ -13,7 +13,7 @@ export default function TagPage() {
         <div>
             <Header></Header>
             <div>
-                <button onClick={Navigation(-1)}>Go back</button>
+                <button onClick={() => Navigation(-1)}>Go back</button>
                 <h2>Blogs on #{Tag}</h2>
             </div>
             <Blogs></Blogs>

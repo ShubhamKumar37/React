@@ -19,6 +19,7 @@ export default function App() {
     if(Location.pathname.includes('tags'))
     {
       const Tag = Location.pathname.split('/').at(-1).replaceAll("-", " ");
+      {console.log(Tag);}
       fetchBlogPosts(Number(Page), Tag);
     }
     else if(Location.pathname.includes('categories'))
